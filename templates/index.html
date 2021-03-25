@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ name }}'s Watchlist</title>
+    <title>{{ user.name }}'s Watchlist</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
 </head>
 <body>
-    <h2>{{ name }}'s Watchlist</h2>
+    <h2>
+        <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/bear.jpg') }}" width="50" height="50">
+        {{ user.name }}'s Watchlist</h2>
     {# 使用 length 过滤器获取 movies 变量的长度,类似 Python 里的 len() 函数 #}
     <p>{{ movies|length }} Titles</p>
     <ul>
@@ -13,6 +17,7 @@
         <li>{{ movie.title }} - {{ movie.year }}</li>  {# 等同于 movie['title'] #}
         {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
     </ul>
+    <img alt="Xiaomai" class="baby" src="{{ url_for('static', filename='images/baby.gif') }}">
     <footer>
         <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
     </footer>
